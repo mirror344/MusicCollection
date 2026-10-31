@@ -24,4 +24,12 @@ public class Song {
 
         Year = year_new;
     }
+
+    public string GetInfo() {
+        return $"Название: {Name}\n" +
+               $"Исполнитель: {Performer}\n" +
+               $"Альбом: {Album}\n" +
+               $"Год выхода: {Year}\n" +
+               $"Лайки: {Likes}\n";
+    }
 }
