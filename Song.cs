@@ -12,4 +12,16 @@ public class Song {
         Year = year;
         Likes = 0;
     }
+
+    public void NewLike() {
+        Likes += 1;
+    }
+
+    public void ChangeYear(int year_new) {
+        if (year_new < 1600 || year_new > 2026) {
+            return;
+        }
+
+        Year = year_new;
+    }
 }

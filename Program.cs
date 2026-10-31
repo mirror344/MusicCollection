@@ -2,7 +2,6 @@
 Song photograph = new Song("Photograph", "Def Leppard", "Pyromania", 1983);
 Song window_shopper = new Song("Window Shopper", "50 Cent", "Get Rich or Die Tryin'", 2005);
 
-faint.Likes = 100;
 
 
 Console.WriteLine("Песня 1");
@@ -30,3 +29,19 @@ Console.WriteLine($"Альбом: {window_shopper.Album}");
 Console.WriteLine($"Год выхода: {window_shopper.Year}");
 Console.WriteLine($"Лайки: {window_shopper.Likes}");
 
+Console.WriteLine();
+
+Console.WriteLine($"До изменения: {faint.Likes}");
+faint.NewLike();
+Console.WriteLine($"После изменения: {faint.Likes}");
+
+Console.WriteLine();
+Console.WriteLine($"Год выхода до изменений: {window_shopper.Year}");
+window_shopper.ChangeYear(2003);
+Console.WriteLine($"Год выхода после изменений: {window_shopper.Year}");
+
+Console.WriteLine();
+faint.ChangeYear(900);
+Console.WriteLine($"Недопустимое значение: {faint.Year}");
+faint.ChangeYear(2077);
+Console.WriteLine($"Недопустимое значение: {faint.Year}");
