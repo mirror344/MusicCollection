@@ -10,8 +10,8 @@ playlist.Songs.Add(window_shopper);
 playlist.Songs.Add(false_alarm);
 
 
-playlist.Songs[0].NewLike();
-playlist.Songs[3].NewLike();
+faint.NewLike();
+
 
 Console.WriteLine($"{playlist.Name}");
 Console.WriteLine($"Количество песен: {playlist.Songs.Count}");
