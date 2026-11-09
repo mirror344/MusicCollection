@@ -1,24 +1,38 @@
-﻿Song faint = new Song("  Faint   ", "   Linkin Park  ", "  Meteora  ", -2003);
+﻿Song faint = new Song("  Faint   ", "   Linkin Park  ", "  Meteora  ", 2003);
 Song photograph = new Song("Photograph", "Def Leppard", "", 1983);
 Song window_shopper = new Song("Window Shopper", "   ", "Get Rich or Die Tryin'", 2005);
+Song false_alarm = new Song("False Alarm", "The Weeknd", "Starboy", 2016);
 
-Console.WriteLine("Первая песня:");
-Console.WriteLine(faint.GetInfo());
-
-Console.WriteLine("Вторая песня:");
-Console.WriteLine(photograph.GetInfo());
-
-
-Console.WriteLine("Третья песня:");
-Console.WriteLine(window_shopper.GetInfo());
+Playlist playlist = new Playlist("Любимые");
+playlist.Songs.Add(faint);
+playlist.Songs.Add(photograph);
+playlist.Songs.Add(window_shopper);
+playlist.Songs.Add(false_alarm);
 
 
-faint.ChangeYear(2015);
-Console.WriteLine($"Новый год: {faint.Year}");
+playlist.Songs[0].NewLike();
+playlist.Songs[3].NewLike();
 
-photograph.ChangeYear(3000);
-Console.WriteLine($"После неправильного года: {photograph.Year}");
-faint.NewLike();
+Console.WriteLine($"{playlist.Name}");
+Console.WriteLine($"Количество песен: {playlist.Songs.Count}");
 
+if (playlist.Songs.Count > 0) {
+    Console.WriteLine($"Первая: {playlist.Songs[0].Name}");
+    Console.WriteLine($"Последняя: {playlist.Songs[playlist.Songs.Count - 1].Name}");
+}
 
-Console.WriteLine($"Лайки первой песни: {faint.Likes}");
+Console.WriteLine();
+
+foreach(Song song in playlist.Songs) {
+    Console.WriteLine(song.GetInfo());
+    Console.WriteLine();
+}
+
+int yearCount = 0;
+foreach(Song song in playlist.Songs) {
+    if (song.Year >= 2000) {
+        yearCount++;
+    }
+}
+
+Console.WriteLine($"Песен, выпущенных после 2000 года: {yearCount}");
